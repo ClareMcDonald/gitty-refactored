@@ -93,7 +93,7 @@ describe('gitty routes', () => {
     ];
 
     const res = await request(app).get('/api/v1/quotes');
-
+    console.log(res.body);
     expect(res.body).toEqual(expected);
       
   });
