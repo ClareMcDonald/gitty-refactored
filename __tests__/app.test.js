@@ -75,4 +75,26 @@ describe('gitty routes', () => {
     
     expect(res.body).toEqual({ status: 404, message: 'Not Found' });
   });
+
+  it('returns an array of quotes', async () => {
+    const expected = [
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      },
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      },
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      }
+    ];
+
+    const res = await request(app).get('/api/v1/quotes');
+    console.log(res.body);
+    expect(res.body).toEqual(expected);
+      
+  });
 });
