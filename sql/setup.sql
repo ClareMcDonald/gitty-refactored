@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS posts CASCADE;
+DROP TABLE IF EXISTS quotes CASCADE;
 
 CREATE TABLE users (
     github_username TEXT NOT NULL PRIMARY KEY,
@@ -18,3 +19,9 @@ CREATE TABLE posts (
 --     posts (text)
 -- VALUES
 --     ('Gotta get down on Friday, everybody is looking forward to the weekend, weekend.');
+
+CREATE TABLE quotes (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    author TEXT NOT NULL,
+    content TEXT NOT NULL
+);
