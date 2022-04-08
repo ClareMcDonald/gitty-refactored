@@ -77,9 +77,24 @@ describe('gitty routes', () => {
   });
 
   it('returns an array of quotes', async () => {
-    const agent = request.agent(app);
+    const expected = [
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      },
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      },
+      {
+        author: expect.any(String),
+        content: expect.any(String)
+      }
+    ];
 
-    await agent
-      .get('/api/v1/quotes')
+    const res = await request(app).get('/api/v1/quotes');
+
+    expect(res.body).toEqual(expected);
+      
   });
 });
